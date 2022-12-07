@@ -1,0 +1,11 @@
+.footer {
+    background-color: var(--primary-clr);
+    padding: 10px 20px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--secondary-clr);
+}
+
+.footer .owner {
+    color: black;
+}
