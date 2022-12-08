@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 
 
@@ -10,14 +11,17 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
   declarations: [
     MainComponent,
     NewPostComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    EditPostComponent
   ],
   imports: [
     CommonModule
   ], exports: [
     MainComponent,
     NewPostComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    EditPostComponent
+
   ]
 })
 export class CollectionModule { }

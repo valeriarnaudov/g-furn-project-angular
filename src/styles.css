@@ -11,8 +11,13 @@
     --logo-clr1: green;
     --logo-clr2: grey;
     --logo-title: lightgreen;
+    --form-bg: lightgrey;
+    --error-clr: red;
+
+    --section-h: calc(100vh - 64px - 44px);
 }
 
 html {
-    font-family: 'Poppins', sans-serif;;
+    font-family: 'Poppins', sans-serif;
+    background-color: lightgreen;
 }

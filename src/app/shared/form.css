@@ -1,0 +1,84 @@
+section {
+  min-height: var(--section-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+section .container {
+  background-color: var(--form-bg);
+  padding: 30px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section .container .form-title {
+  color: var(--primary-clr);
+}
+
+section .container form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  gap: 6px;
+}
+
+section .container form input,
+textarea,
+select {
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: var(--secondary-clr);
+  min-width: 400px;
+}
+
+section .container form .error {
+  color: var(--error-clr);
+}
+
+section .container form .btn.form-btn {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: var(--primary-clr);
+  color: var(--secondary-clr);
+  border-radius: 20px;
+  border: none;
+  border: 2px solid var(--primary-clr);
+  margin-top: 6px;
+}
+
+section .container form .btn.form-btn:hover {
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
+}
+
+section .container .redirect {
+  font-size: 0.8rem;
+}
+
+section .container .redirect .click-for-redirect {
+  color: var(--primary-clr);
+  cursor: pointer;
+}
+
+section .container form .sides {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 6px;
+}
+
+section .container form .sides .side {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+section .container form input {
+  background-color: white;
+}

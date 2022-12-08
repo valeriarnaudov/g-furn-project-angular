@@ -1,1 +1,28 @@
-<p>register works!</p>
+<section>
+    <div class="container">
+        <h1 class="form-title">Register</h1>
+        <form action="" class="fields">
+            <div class="sides">
+                <div class="side">
+                    <label for="">Profile picture</label>
+                    <input type="file">
+                    <label for="">Name</label>
+                    <input type="text" placeholder="Johny">
+                    <label for="">Years</label>
+                    <input type="number" name="" id="" placeholder="25">
+                </div>
+                <div class="side">
+                    <label for="">E-mail</label>
+                    <input type="email" name="" id="" placeholder="email@domain.com">
+                    <p class="error">Invalid email!</p>
+                    <label for="">Password</label>
+                    <input type="password" name="" id="" placeholder="********">
+                    <p class="error">Password must be at least 5 long!</p>
+                </div>
+            </div>
+            <button class="btn form-btn">Register</button>
+        </form>
+        <p class="redirect">Have an account? <a class="click-for-redirect" routerLink="/auth/login">Login!</a></p>
+
+    </div>
+</section>

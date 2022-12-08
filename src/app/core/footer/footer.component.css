@@ -4,6 +4,8 @@
     margin: 0 auto;
     text-align: center;
     color: var(--secondary-clr);
+  border-radius: 40px 40px 0 0;
+
 }
 
 .footer .owner {
