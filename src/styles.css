@@ -12,6 +12,7 @@
     --logo-clr2: grey;
     --logo-title: lightgreen;
     --form-bg: lightgrey;
+    --card-bg: lightgrey;
     --error-clr: red;
 
     --section-h: calc(100vh - 64px - 44px);
@@ -21,3 +22,11 @@ html {
     font-family: 'Poppins', sans-serif;
     background-color: lightgreen;
 }
+
+section {
+    min-height: var(--section-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+  }

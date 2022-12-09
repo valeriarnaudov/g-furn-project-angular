@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 
 
@@ -12,7 +13,8 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     MainComponent,
     NewPostComponent,
     PostDetailComponent,
-    EditPostComponent
+    EditPostComponent,
+    MyPostsComponent
   ],
   imports: [
     CommonModule
@@ -20,7 +22,8 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     MainComponent,
     NewPostComponent,
     PostDetailComponent,
-    EditPostComponent
+    MyPostsComponent,
+    EditPostComponent,
 
   ]
 })
