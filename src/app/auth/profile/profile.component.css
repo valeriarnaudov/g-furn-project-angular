@@ -1,0 +1,44 @@
+.profile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  gap: 1rem;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.profile-container .profile-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-container .title {
+  text-align: center;
+  color: var(--primary-clr);
+  margin-bottom: 1rem;
+}
+
+.profile-container .name,
+.profile-container .years {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.profile-container .edit-btn {
+  margin-top: 1rem;
+  background-color: green;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--primary-clr);
+}
+
+.profile-container .edit-btn:hover {
+  color: green;
+  background-color: var(--primary-clr);
+}

@@ -1,53 +1,64 @@
 .post-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1000px;
-    gap: 1rem;
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  gap: 1rem;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
 }
 
 .post-container .post-img {
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
 }
- 
+
 .post-container .title {
-    text-align: center;
-    color: var(--primary-clr);
-    margin-bottom: 1rem;
+  text-align: center;
+  color: var(--primary-clr);
+  margin-bottom: 1rem;
 }
 
 .post-container .description {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-.post-container .creator, .post-container .post-time {
-    text-align: end;
-    font-size: 0.7rem;
+.post-container .creator,
+.post-container .post-time {
+  text-align: end;
+  font-size: 0.7rem;
 }
 
 .post-container .btns {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .post-container .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--primary-clr);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--primary-clr);
+  cursor: pointer;
 }
 
 .btn-edit {
-    background-color: green;
+  background-color: green;
 }
 
 .btn-delete {
-    background-color: red;
+  background-color: red;
+}
+
+.post-container .btn-edit:hover {
+  color: green;
+  background-color: var(--primary-clr);
+}
+
+.post-container .btn-delete:hover {
+  color: red;
+  background-color: var(--primary-clr);
 }
