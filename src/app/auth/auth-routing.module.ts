@@ -1,11 +1,10 @@
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {
@@ -29,8 +28,11 @@ const routes: Routes = [
   {
     path: 'profile/:id',
     component: ProfileComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['/auth/login'])),
     // canActivate: [AuthActivate],
-    data: { title: 'Profile', loginRequired: true },
+    data: {
+      title: 'Profile',
+    },
   },
   {
     path: 'edit/:id',
