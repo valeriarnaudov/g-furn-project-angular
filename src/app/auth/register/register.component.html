@@ -4,8 +4,19 @@
     <form class="fields" [formGroup]="form" (ngSubmit)="registerHandler()">
       <div class="sides">
         <div class="side">
-          <label for="img">Profile picture</label>
-          <input type="file" id="img" formControlName="img" />
+          <div *ngIf="uploadedImg" class="display-img-container">
+            <img src={{uploadedImg}} alt="" class="uploaded-img">
+          </div>
+          <div *ngIf="!uploadedImg">
+            <label for="img">Profile picture</label>
+            <input
+              type="file"
+              id="img"
+              formControlName="img"
+              accept=".jpeg, .png, .jpg"
+              (change)="uploadProfileImg($event)"
+            />
+          </div>
           <label for="name">Name</label>
           <input
             type="text"
