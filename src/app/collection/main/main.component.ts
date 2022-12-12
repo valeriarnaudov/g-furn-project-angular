@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import IPost from 'src/app/interfaces/post.interface';
+import { CollectionService } from 'src/app/services/collection.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
+  posts!: IPost[];
 
+  constructor(private collectionService: CollectionService) {}
+
+  ngOnInit(): void {
+    this.collectionService.getPosts().subscribe((posts) => {
+      this.posts = posts;
+    });
+  }
 }

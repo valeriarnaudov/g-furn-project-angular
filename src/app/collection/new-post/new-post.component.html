@@ -1,23 +1,34 @@
 <section>
   <div class="container">
     <h1 class="form-title">New post</h1>
-    <form action="" class="fields">
+    <form class="fields" [formGroup]="postForm" (ngSubmit)="newPostHandler()">
       <div class="sides">
         <div class="side">
-          <label for="">Furniture picture</label>
-          <input type="file" />
-          <label for="">Title</label>
-          <input type="text" placeholder="Aluminium table" />
-          <label for="">Category</label>
-          <select name="" id="">
+          <label for="file">Furniture picture</label>
+          <input type="file" name="file" formControlName="img" />
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            formControlName="title"
+            placeholder="Aluminium table"
+          />
+          <label for="category">Category</label>
+          <select name="category" id="category" formControlName="category">
             <option value="tables">Tables</option>
             <option value="chairs">Chairs</option>
             <option value="sets">Sets</option>
           </select>
         </div>
         <div class="side">
-          <label for="">Description</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <label for="description">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            formControlName="description"
+            cols="30"
+            rows="10"
+          ></textarea>
         </div>
       </div>
       <button class="btn form-btn">Submit</button>

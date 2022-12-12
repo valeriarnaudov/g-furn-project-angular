@@ -1,28 +1,62 @@
 <section>
-    <div class="container">
-        <h1 class="form-title">Register</h1>
-        <form class="fields" [formGroup]="form">
-            <div class="sides">
-                <div class="side">
-                    <label for="img">Profile picture</label>
-                    <input type="file" id="img">
-                    <label for="name">Name</label>
-                    <input type="text" name="text" id="text" placeholder="Johny" formControlName="name">
-                    <label for="">Years</label>
-                    <input type="number" name="" id="" placeholder="25" formControlName="">
-                </div>
-                <div class="side">
-                    <label for="">E-mail</label>
-                    <input type="email" name="" id="" placeholder="email@domain.com">
-                    <p class="error">Invalid email!</p>
-                    <label for="">Password</label>
-                    <input type="password" name="" id="" placeholder="********">
-                    <p class="error">Password must be at least 5 long!</p>
-                </div>
-            </div>
-            <button class="btn form-btn">Register</button>
-        </form>
-        <p class="redirect">Have an account? <a class="click-for-redirect" routerLink="/auth/login">Login!</a></p>
-
-    </div>
+  <div class="container">
+    <h1 class="form-title">Register</h1>
+    <form class="fields" [formGroup]="form" (ngSubmit)="registerHandler()">
+      <div class="sides">
+        <div class="side">
+          <label for="img">Profile picture</label>
+          <input type="file" id="img" formControlName="img" />
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="text"
+            id="text"
+            placeholder="Johny"
+            formControlName="name"
+          />
+          <label for="">Years</label>
+          <input
+            type="number"
+            name=""
+            id=""
+            placeholder="25"
+            formControlName="years"
+          />
+        </div>
+        <div class="side">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+            placeholder="email@domain.com"
+          />
+          <p class="error">Invalid email!</p>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            formControlName="password"
+            placeholder="********"
+          />
+          <p class="error">Password must be at least 5 long!</p>
+          <label for="rePassword">Repeat password</label>
+          <input
+            type="password"
+            name="rePassword"
+            id="rePassword"
+            formControlName="rePassword"
+            placeholder="********"
+          />
+        </div>
+      </div>
+      <button class="btn form-btn">Register</button>
+    </form>
+    <p class="redirect">
+      Have an account?
+      <a class="click-for-redirect" routerLink="/auth/login">Login!</a>
+    </p>
+  </div>
 </section>

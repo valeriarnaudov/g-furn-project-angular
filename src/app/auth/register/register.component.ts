@@ -15,17 +15,22 @@ export class RegisterComponent {
   constructor (private authService: AuthService, private router: Router) {
     this.form = new FormGroup({
       email: new FormControl(),
-      password: new FormControl()
+      password: new FormControl(),
+      img: new FormControl(),
+      name: new FormControl(),
+      years: new FormControl(),
+      rePassword: new FormControl(),
     })
   }
 
-  onSubmit() {
-    this.authService.register(this.form.value)
-      .then(res => {
-        console.log(res);
-        this.router.navigate(['/auth/login']);
-      })
-      .catch(err => console.log(err)
-      ) 
+  registerHandler() {
+    console.log(this.form.value)
+    // this.authService.register(this.form.value)
+    //   .then(res => {
+    //     console.log(res);
+    //     this.router.navigate(['/auth/login']);
+    //   })
+    //   .catch(err => console.log(err)
+    //   ) 
   }
 }

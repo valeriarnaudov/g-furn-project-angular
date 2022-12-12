@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
@@ -15,7 +16,7 @@ import { CollectionRoutingModule } from './collection-routing.module';
     EditPostComponent,
     MyPostsComponent,
   ],
-  imports: [CommonModule, CollectionRoutingModule],
+  imports: [CommonModule, CollectionRoutingModule, ReactiveFormsModule],
   exports: [
     MainComponent,
     NewPostComponent,
