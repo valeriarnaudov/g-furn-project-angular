@@ -5,8 +5,7 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
-
-
+import { CollectionRoutingModule } from './collection-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,17 +13,15 @@ import { MyPostsComponent } from './my-posts/my-posts.component';
     NewPostComponent,
     PostDetailComponent,
     EditPostComponent,
-    MyPostsComponent
+    MyPostsComponent,
   ],
-  imports: [
-    CommonModule
-  ], exports: [
+  imports: [CommonModule, CollectionRoutingModule],
+  exports: [
     MainComponent,
     NewPostComponent,
     PostDetailComponent,
     MyPostsComponent,
     EditPostComponent,
-
-  ]
+  ],
 })
-export class CollectionModule { }
+export class CollectionModule {}

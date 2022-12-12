@@ -1,15 +1,15 @@
 <section>
     <div class="container">
         <h1 class="form-title">Register</h1>
-        <form action="" class="fields">
+        <form class="fields" [formGroup]="form">
             <div class="sides">
                 <div class="side">
-                    <label for="">Profile picture</label>
-                    <input type="file">
-                    <label for="">Name</label>
-                    <input type="text" placeholder="Johny">
+                    <label for="img">Profile picture</label>
+                    <input type="file" id="img">
+                    <label for="name">Name</label>
+                    <input type="text" name="text" id="text" placeholder="Johny" formControlName="name">
                     <label for="">Years</label>
-                    <input type="number" name="" id="" placeholder="25">
+                    <input type="number" name="" id="" placeholder="25" formControlName="">
                 </div>
                 <div class="side">
                     <label for="">E-mail</label>
