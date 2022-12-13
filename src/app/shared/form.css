@@ -1,5 +1,3 @@
-
-
 section .container {
   background-color: var(--form-bg);
   padding: 30px;
@@ -7,7 +5,7 @@ section .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 13px 10px 35px 0px rgba(0,0,0,0.75);
+  box-shadow: 13px 10px 35px 0px rgba(0, 0, 0, 0.75);
 }
 
 section .container .form-title {
@@ -30,6 +28,7 @@ select {
   border-radius: 10px;
   border-color: var(--secondary-clr);
   min-width: 400px;
+  resize: none;
 }
 
 section .container form .error {
@@ -78,13 +77,12 @@ section .container form input {
   background-color: white;
 }
 
-
 .up-img {
   display: flex;
   flex-direction: column;
 }
 
-.up-img input{
+.up-img input {
   margin-top: 6px;
 }
 
@@ -96,4 +94,17 @@ section .container form .btn:disabled {
 section .container form .btn:disabled:hover {
   background-color: grey;
   cursor: unset;
+}
+
+.display-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploaded-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
 }

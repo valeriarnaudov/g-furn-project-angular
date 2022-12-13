@@ -1,42 +1,90 @@
 <section>
   <div class="container">
     <h1 class="form-title">New post</h1>
-    <form class="fields" [formGroup]="postForm" (ngSubmit)="newPostHandler()">
+    <form class="fields" [formGroup]="form" (ngSubmit)="newPostHandler()">
       <div class="sides">
         <div class="side">
-          <label for="file">Furniture picture</label>
-          <input
-            type="file"
-            name="file"
-            formControlName="img"
-            accept=".jpeg, .png, .jpg"
-          />
+          <div *ngIf="uploadedImg" class="display-img-container">
+            <img
+              src="{{ uploadedImg }}"
+              alt="uploaded-img"
+              class="uploaded-img"
+            />
+          </div>
+          <div *ngIf="!uploadedImg" class="up-img">
+            <label for="img">Furniture picture</label>
+            <input
+              type="file"
+              id="img"
+              formControlName="img"
+              accept="image/*"
+              (change)="uploadPostImg($event)"
+            />
+          </div>
+          <ng-container *ngIf="errorUploading">
+            <p class="error">Uploading error!</p>
+          </ng-container>
+          <ng-container *ngIf="form.get('img')?.touched">
+            <p class="error" *ngIf="form.get('img')?.errors?.['required']">
+              Picture is required!
+            </p>
+          </ng-container>
           <label for="title">Title</label>
           <input
             type="text"
-            name="title"
+            id="title"
             formControlName="title"
             placeholder="Aluminium table"
           />
+          <ng-container *ngIf="form.get('title')?.touched">
+            <p class="error" *ngIf="form.get('title')?.errors?.['required']">
+              Title is required!
+            </p>
+            <p class="error" *ngIf="form.get('title')?.errors?.['minlength']">
+              Title must be at least 5 characters!
+            </p>
+          </ng-container>
           <label for="category">Category</label>
           <select name="category" id="category" formControlName="category">
+            <option value="" disabled hidden selected>
+              --Please choose an option--
+            </option>
             <option value="tables">Tables</option>
             <option value="chairs">Chairs</option>
             <option value="sets">Sets</option>
           </select>
+          <p class="error" *ngIf="emptyCategory">Category is required!</p>
+          <ng-container *ngIf="form.get('category')?.touched">
+            <p class="error" *ngIf="form.get('category')?.errors?.['required']">
+              Category is required!
+            </p>
+          </ng-container>
         </div>
         <div class="side">
           <label for="description">Description</label>
           <textarea
-            name="description"
             id="description"
             formControlName="description"
             cols="30"
-            rows="10"
+            rows="11"
           ></textarea>
+          <ng-container *ngIf="form.get('description')?.touched">
+            <p
+              class="error"
+              *ngIf="form.get('description')?.errors?.['required']"
+            >
+              Description is required!
+            </p>
+            <p
+              class="error"
+              *ngIf="form.get('description')?.errors?.['minlength']"
+            >
+              Description must be at least 20 characters!
+            </p>
+          </ng-container>
         </div>
       </div>
-      <button class="btn form-btn">Submit</button>
+      <button class="btn form-btn" [disabled]="form.invalid">Submit</button>
     </form>
   </div>
 </section>

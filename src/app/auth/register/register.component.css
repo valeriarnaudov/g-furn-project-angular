@@ -1,14 +1,2 @@
 @import url("../../shared/form.css");
 
-.display-img-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.uploaded-img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-}
