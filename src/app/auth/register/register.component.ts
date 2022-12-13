@@ -29,7 +29,11 @@ export class RegisterComponent {
       email: new FormControl('', [Validators.required, appEmailValidator()]),
       img: new FormControl(''),
       name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      years: new FormControl('', [Validators.required, Validators.min(16), Validators.max(80)]),
+      years: new FormControl('', [
+        Validators.required,
+        Validators.min(16),
+        Validators.max(80),
+      ]),
       pass: new FormGroup(
         {
           password: new FormControl('', [

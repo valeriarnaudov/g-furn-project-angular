@@ -22,9 +22,7 @@
         </p>
       </ng-container>
       <ng-container *ngIf="loginError === true">
-        <p class="error">
-          Invalid email or password!
-        </p>
+        <p class="error">Invalid email or password!</p>
       </ng-container>
       <button class="btn form-btn" [disabled]="form.invalid">Login</button>
     </form>
