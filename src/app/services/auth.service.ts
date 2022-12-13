@@ -3,17 +3,20 @@ import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
 } from '@angular/fire/auth';
+import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: Auth) {}
+  constructor(private auth: Auth, private firestore: Firestore) {}
 
-  register({ email, password }: any) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
+  register({ email, pass: { password, rePassword }, img, name, years }: any) {
+    const userRef = collection(this.firestore, 'users');
+    createUserWithEmailAndPassword(this.auth, email, password);
+    return addDoc(userRef, { email, img, name, years });
   }
 
   login({ email, password }: any) {
@@ -21,6 +24,6 @@ export class AuthService {
   }
 
   logout() {
-    return signOut(this.auth)
+    return signOut(this.auth);
   }
 }

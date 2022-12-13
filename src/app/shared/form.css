@@ -76,3 +76,13 @@ section .container form .sides .side {
 section .container form input {
   background-color: white;
 }
+
+
+.up-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.up-img input{
+  margin-top: 6px;
+}

@@ -5,34 +5,51 @@
       <div class="sides">
         <div class="side">
           <div *ngIf="uploadedImg" class="display-img-container">
-            <img src={{uploadedImg}} alt="" class="uploaded-img">
+            <img src="{{ uploadedImg }}" alt="" class="uploaded-img" />
           </div>
-          <div *ngIf="!uploadedImg">
+          <div *ngIf="!uploadedImg" class="up-img">
             <label for="img">Profile picture</label>
             <input
               type="file"
               id="img"
               formControlName="img"
-              accept=".jpeg, .png, .jpg"
+              accept="image/*"
               (change)="uploadProfileImg($event)"
             />
           </div>
           <label for="name">Name</label>
           <input
             type="text"
-            name="text"
-            id="text"
+            id="name"
             placeholder="Johny"
             formControlName="name"
           />
-          <label for="">Years</label>
+          <ng-container *ngIf="form.get('name')?.touched">
+            <p class="error" *ngIf="form.get('name')?.errors?.['required']">
+              Name is required!
+            </p>
+            <p class="error" *ngIf="form.get('name')?.errors?.['minlength']">
+              Name must be at least 4 characters!
+            </p>
+          </ng-container>
+          <label for="years">Years</label>
           <input
             type="number"
-            name=""
-            id=""
+            id="years"
             placeholder="25"
             formControlName="years"
           />
+          <ng-container *ngIf="form.get('years')?.touched">
+            <p class="error" *ngIf="form.get('years')?.errors?.['required']">
+              Years are required!
+            </p>
+            <p class="error" *ngIf="form.get('years')?.errors?.['min']">
+              You should be at least 16 years old!
+            </p>
+            <p class="error" *ngIf="form.get('years')?.errors?.['max']">
+              Invalid years!
+            </p>
+          </ng-container>
         </div>
         <div class="side">
           <label for="email">E-mail</label>
@@ -43,26 +60,56 @@
             formControlName="email"
             placeholder="email@domain.com"
           />
-          <p class="error">Invalid email!</p>
-          <label for="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            formControlName="password"
-            placeholder="********"
-          />
-          <p class="error">Password must be at least 5 long!</p>
-          <label for="rePassword">Repeat password</label>
-          <input
-            type="password"
-            name="rePassword"
-            id="rePassword"
-            formControlName="rePassword"
-            placeholder="********"
-          />
+          <ng-container *ngIf="form.get('email')?.touched">
+            <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+              Email is required!
+            </p>
+            <p
+              class="error"
+              *ngIf="form.get('email')?.errors?.['appEmailValidator']"
+            >
+              Email is not valid!
+            </p>
+          </ng-container>
+          <ng-container formGroupName="pass">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              placeholder="********"
+            />
+            <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
+              <p
+                class="error"
+                *ngIf="form.get('pass')?.get('password')?.errors?.['required']"
+              >
+                Password is required!
+              </p>
+              <p
+                class="error"
+                *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']"
+              >
+                Password must be at least 5 characters!
+              </p>
+            </ng-container>
+            <label for="rePassword">Repeat password</label>
+            <input
+              type="password"
+              id="rePassword"
+              formControlName="rePassword"
+              placeholder="********"
+            />
+            <p
+              class="error"
+              *ngIf="form.get('pass')?.errors?.['rePassValidator'] && form.get('pass')?.get('rePassword')?.touched"
+            >
+              Repeat Password does not match password!
+            </p>
+          </ng-container>
         </div>
       </div>
+      <!-- [disabled]="form.invalid" -->
       <button class="btn form-btn">Register</button>
     </form>
     <p class="redirect">
