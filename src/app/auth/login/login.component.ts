@@ -1,8 +1,8 @@
-
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { appEmailValidator } from 'src/app/shared/validators/app-email-validator';
 
 @Component({
   selector: 'app-login',
@@ -11,20 +11,21 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
   form: FormGroup;
+  loginError = false;
 
   constructor(private authService: AuthService, private router: Router) {
     this.form = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl(),
+      email: new FormControl('', [Validators.required, appEmailValidator()]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
-  onSubmit() {
+  loginHandler() {
     this.authService
       .login(this.form.value)
       .then((res) => {
-        this.router.navigate(['/main']);
+        this.router.navigate(['/collection']);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => (this.loginError = true));
   }
 }

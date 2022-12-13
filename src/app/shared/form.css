@@ -86,3 +86,13 @@ section .container form input {
 .up-img input{
   margin-top: 6px;
 }
+
+section .container form .btn:disabled {
+  background-color: grey;
+  cursor: unset;
+}
+
+section .container form .btn:disabled:hover {
+  background-color: grey;
+  cursor: unset;
+}
