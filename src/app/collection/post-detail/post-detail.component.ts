@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import IPost from 'src/app/shared/interfaces/post.interface';
 import { CollectionService } from 'src/app/shared/services/collection.service';
 
@@ -8,17 +8,37 @@ import { CollectionService } from 'src/app/shared/services/collection.service';
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css'],
 })
-export class PostDetailComponent {
+export class PostDetailComponent implements OnInit {
+  post!: any;
+  currentUserId!: any;
+  postId!: string;
 
-  post!: IPost
+  isOwner: boolean = false;
 
   constructor(
     private collectionService: CollectionService,
-    private route: Router
+    private route: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
-  async deletePost(post: IPost) {
-    await this.collectionService.deletePost(post);
-    return this.route.navigate(['/collection/main']);
+  ngOnInit(): void {
+    this.currentUserId = JSON.parse(localStorage.getItem('user') as any).uid;
+    this.postId = this.activatedRoute.snapshot.params?.['id'];
+
+    this.collectionService
+      .getSinglePost(this.postId)
+      .then((res) => {
+        const data = res.data();
+        if (this.currentUserId === data?.['creator'].uid) {
+          this.isOwner = true;
+        }
+        this.post = data;
+      })
+      .catch((err) => console.log(err));
+  }
+
+  async deletePost() {
+    await this.collectionService.deletePost(this.postId);
+    return this.route.navigate(['/collection']);
   }
 }
