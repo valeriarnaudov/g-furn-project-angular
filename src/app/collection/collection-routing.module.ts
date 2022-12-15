@@ -16,7 +16,7 @@ const routes: Routes = [
     data: { title: 'Create post' },
   },
   {
-    path: 'detail/:id',
+    path: 'details/:id',
     component: PostDetailComponent,
     data: { title: 'Details' },
   },

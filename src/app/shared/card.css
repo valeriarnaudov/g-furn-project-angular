@@ -10,10 +10,11 @@
     background-color: var(--card-bg);
     padding: 1rem;
     border-radius: 20px;
+    min-height: 300px;
   }
   
   .view .post-container .post-img {
-    max-height: 60%;
+    height: 200px;
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
@@ -24,10 +25,10 @@
     color: var(--primary-clr);
   }
   
-  .view .post-container .creator,
-  .view .post-container .post-time {
+  .view .post-container .creator {
     font-size: 0.7rem;
     text-align: end;
+    margin: 1rem 0;
   }
   
   .view .post-container .info {

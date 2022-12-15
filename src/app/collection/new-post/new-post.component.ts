@@ -9,6 +9,7 @@ import {
 } from '@angular/fire/storage';
 import { emptyValidator } from 'src/app/shared/validators/empty-validator';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-new-post',
@@ -21,10 +22,13 @@ export class NewPostComponent {
   errorUploading = false;
   emptyCategory = false;
 
+  user = JSON.parse(localStorage.getItem('user') as any);
+
   constructor(
     private collectionService: CollectionService,
     private storage: Storage,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.form = new FormGroup({
       img: new FormControl('', [Validators.required]),
@@ -44,7 +48,12 @@ export class NewPostComponent {
     if (this.form.value.category === '') {
       return (this.emptyCategory = true);
     }
-    const req = { ...this.form.value, img: this.uploadedImg };
+    const postCreator = await this.authService.getUserData(this.user.uid);
+    const req = {
+      ...this.form.value,
+      img: this.uploadedImg,
+      creator: {...postCreator, uid: this.user.uid},
+    };
     await this.collectionService.addPost(req);
     return this.router.navigate(['/collection']);
   }

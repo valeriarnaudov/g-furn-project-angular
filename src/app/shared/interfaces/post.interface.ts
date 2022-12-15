@@ -6,5 +6,6 @@ export default interface IPost {
     title: string;
     description: string;
     category: string;
+    creator: any;
     owner: IUser;
 }
