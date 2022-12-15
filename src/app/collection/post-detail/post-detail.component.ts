@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import IPost from 'src/app/interfaces/post.interface';
-import { CollectionService } from 'src/app/services/collection.service';
+import IPost from 'src/app/shared/interfaces/post.interface';
+import { CollectionService } from 'src/app/shared/services/collection.service';
 
 @Component({
   selector: 'app-post-detail',

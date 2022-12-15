@@ -1,4 +1,4 @@
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -50,7 +50,7 @@ export class RegisterComponent {
   }
 
   registerHandler() {
-    const req = { ...this.form.value, img: this.uploadedImg || '' };
+    const req = { ...this.form.value, img: this.uploadedImg || 'https://firebasestorage.googleapis.com/v0/b/g-furn.appspot.com/o/images%2Fdefault.jpg?alt=media&token=fd428995-316d-46ce-9149-4ca0e49a118a' };
     this.authService
       .register(req)
       .then((res) => {

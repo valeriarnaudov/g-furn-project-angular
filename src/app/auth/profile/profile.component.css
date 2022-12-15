@@ -27,8 +27,13 @@
   font-size: 1.2rem;
 }
 
-.profile-container .edit-btn {
-  margin-top: 1rem;
+.profile-container .email {
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.profile-container .btn.edit-btn {
   background-color: green;
   padding: 10px 20px;
   border: none;

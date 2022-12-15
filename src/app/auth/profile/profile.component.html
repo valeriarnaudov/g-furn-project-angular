@@ -2,16 +2,19 @@
   <div class="profile-container">
     <div class="side">
       <img
-        src="../../../assets/images/Kettler-Garden-Furniture-2-pwzhh5s0k71t9riwu93njsieddwptc95cxmahvejvc.jpg"
-        alt=""
+        src="{{userData?.img}}"
+        alt="profile-img"
         class="profile-img"
       />
     </div>
     <div class="side">
-      <h1 class="title">Valto's Profile</h1>
-      <p class="name">Name: Valto</p>
-      <p class="years">Years: 25</p>
-      <button class="btn edit-btn">Edit</button>
+      <h1 class="title">{{userData?.name}}'s Profile</h1>
+      <p class="name">Name: {{userData?.name}}</p>
+      <p class="years">Years: {{userData?.years}}</p>
+      <p class="email">Email: {{userData?.email}}</p>
+      <ng-container *ngIf="isOwner">
+        <a class="btn edit-btn" routerLink="/auth/edit/{{userData?.uid}}">Edit</a>
+      </ng-container>
     </div>
   </div>
 </section>

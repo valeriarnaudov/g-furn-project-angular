@@ -1,4 +1,4 @@
-import { CollectionService } from './../../services/collection.service';
+import { CollectionService } from '../../shared/services/collection.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import {
