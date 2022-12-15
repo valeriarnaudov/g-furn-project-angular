@@ -1,13 +1,53 @@
 <section>
   <div class="container">
     <h1 class="form-title">Edit profile</h1>
-    <form action="" class="fields">
-      <label for="">Profile picture</label>
-      <input type="file" />
-      <label for="">Name</label>
-      <input type="text" placeholder="Johny" />
-      <label for="">Years</label>
-      <input type="number" name="" id="" placeholder="25" />
+    <form class="fields" [formGroup]="form" (ngSubmit)="editProfileHandler()" >
+      <div *ngIf="uploadedImg" class="display-img-container">
+        <img src="{{ uploadedImg }}" alt="" class="uploaded-img" />
+      </div>
+      <div *ngIf="!uploadedImg" class="up-img">
+        <label for="img">Profile picture</label>
+        <input
+          type="file"
+          id="img"
+          formControlName="img"
+          accept="image/*"
+          (change)="uploadProfileImg($event)"
+        />
+      </div>
+      <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            value="{{userData?.name}}"
+            formControlName="name"
+          />
+          <ng-container *ngIf="form.get('name')?.touched">
+            <p class="error" *ngIf="form.get('name')?.errors?.['required']">
+              Name is required!
+            </p>
+            <p class="error" *ngIf="form.get('name')?.errors?.['minlength']">
+              Name must be at least 4 characters!
+            </p>
+          </ng-container>
+          <label for="years">Years</label>
+          <input
+            type="number"
+            id="years"
+            value="{{userData?.years}}"
+            formControlName="years"
+          />
+          <ng-container *ngIf="form.get('years')?.touched">
+            <p class="error" *ngIf="form.get('years')?.errors?.['required']">
+              Years are required!
+            </p>
+            <p class="error" *ngIf="form.get('years')?.errors?.['min']">
+              You should be at least 16 years old!
+            </p>
+            <p class="error" *ngIf="form.get('years')?.errors?.['max']">
+              Invalid years!
+            </p>
+          </ng-container>
       <button class="btn form-btn">Save changes</button>
     </form>
   </div>

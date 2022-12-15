@@ -54,7 +54,6 @@ export class RegisterComponent {
     this.authService
       .register(req)
       .then((res) => {
-        console.log(res);
         this.router.navigate(['/collection']);
       })
       .catch((err) => console.log(err));
