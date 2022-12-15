@@ -8,6 +8,7 @@ import {
   Storage,
 } from '@angular/fire/storage';
 import { emptyValidator } from 'src/app/shared/validators/empty-validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-post',
@@ -22,7 +23,8 @@ export class NewPostComponent {
 
   constructor(
     private collectionService: CollectionService,
-    private storage: Storage
+    private storage: Storage,
+    private router: Router
   ) {
     this.form = new FormGroup({
       img: new FormControl('', [Validators.required]),
@@ -43,7 +45,8 @@ export class NewPostComponent {
       return (this.emptyCategory = true);
     }
     const req = { ...this.form.value, img: this.uploadedImg };
-    return await this.collectionService.addPost(req);
+    await this.collectionService.addPost(req);
+    return this.router.navigate(['/collection']);
   }
 
   uploadPostImg($event: any) {
