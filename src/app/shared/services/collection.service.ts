@@ -7,6 +7,7 @@ import {
   doc,
   deleteDoc,
   getDoc,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import IPost from '../interfaces/post.interface';
@@ -18,8 +19,8 @@ export class CollectionService {
   constructor(private firestore: Firestore) {}
 
   addPost(post: IPost) {
-    const postRef = collection(this.firestore, 'posts');
-    return addDoc(postRef, post);
+    const collectionRef = collection(this.firestore, 'posts');
+    return addDoc(collectionRef, post);
   }
 
   getPosts(): Observable<IPost[]> {
@@ -35,5 +36,10 @@ export class CollectionService {
   getSinglePost(id: string) {
     const postRef = doc(this.firestore, `posts/${id}`);
     return getDoc(postRef);
+  }
+
+  editPost(id: string, postData: any) {
+    const postRef = doc(this.firestore, `posts/${id}`);
+    return updateDoc(postRef, postData);
   }
 }

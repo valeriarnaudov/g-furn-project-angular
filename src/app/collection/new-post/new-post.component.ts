@@ -52,7 +52,7 @@ export class NewPostComponent {
     const req = {
       ...this.form.value,
       img: this.uploadedImg,
-      creator: {...postCreator, uid: this.user.uid},
+      creator: { ...postCreator, uid: this.user.uid },
     };
     await this.collectionService.addPost(req);
     return this.router.navigate(['/collection']);

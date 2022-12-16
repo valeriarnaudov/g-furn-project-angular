@@ -10,7 +10,7 @@ import { CollectionService } from 'src/app/shared/services/collection.service';
 })
 export class PostDetailComponent implements OnInit {
   post!: any;
-  currentUserId!: any;
+  currentUserId!: string;
   postId!: string;
 
   isOwner: boolean = false;

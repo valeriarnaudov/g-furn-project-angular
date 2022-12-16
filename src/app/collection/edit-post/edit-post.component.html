@@ -1,27 +1,85 @@
 <section>
-    <div class="container">
-      <h1 class="form-title">Edit post</h1>
-      <form action="" class="fields">
-        <div class="sides">
-          <div class="side">
-            <label for="">Furniture picture</label>
-            <input type="file" />
-            <label for="">Title</label>
-            <input type="text" placeholder="Aluminium table" />
-            <label for="">Category</label>
-            <select name="" id="">
-              <option value="tables">Tables</option>
-              <option value="chairs">Chairs</option>
-              <option value="sets">Sets</option>
-            </select>
+  <div class="container">
+    <h1 class="form-title">Edit post</h1>
+    <form class="fields" (submit)="editFormHandler()" [formGroup]="form">
+      <div class="sides">
+        <div class="side">
+          <div *ngIf="uploadedImg" class="display-img-container">
+            <img src="{{ uploadedImg }}" alt="" class="uploaded-img" />
           </div>
-          <div class="side">
-            <label for="">Description</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+          <div *ngIf="!uploadedImg" class="up-img">
+            <label for="img">Furniture picture</label>
+            <input
+              type="file"
+              id="img"
+              formControlName="img"
+              accept="image/*"
+              (change)="uploadImg($event)"
+            />
           </div>
+          <ng-container *ngIf="errorUploading">
+            <p class="error">Uploading error!</p>
+          </ng-container>
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            value="{{ postData?.title }}"
+            formControlName="title"
+          />
+          <ng-container *ngIf="form.get('title')?.touched">
+            <p class="error" *ngIf="form.get('title')?.errors?.['required']">
+              Title is required!
+            </p>
+            <p class="error" *ngIf="form.get('title')?.errors?.['minlength']">
+              Title must be at least 5 characters!
+            </p>
+          </ng-container>
+          <label for="category">Category</label>
+          <select
+            id="category"
+            formControlName="category"
+            [value]="postData?.category"
+          >
+            <option value="tables">Tables</option>
+            <option value="chairs">Chairs</option>
+            <option value="sets">Sets</option>
+          </select>
+          <ng-container *ngIf="form.get('category')?.touched">
+            <p class="error" *ngIf="form.get('category')?.errors?.['required']">
+              Category is required!
+            </p>
+            <p class="error" *ngIf="form.get('category')?.errors?.['emptyValidator']">
+              Category cannot be empty!
+            </p>
+          </ng-container>
         </div>
-        <button class="btn form-btn">Save changes</button>
-      </form>
-    </div>
-  </section>
-  
+        <div class="side">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            [value]="postData?.description"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <ng-container *ngIf="form.get('description')?.touched">
+            <p
+              class="error"
+              *ngIf="form.get('description')?.errors?.['required']"
+            >
+              Description is required!
+            </p>
+            <p
+              class="error"
+              *ngIf="form.get('description')?.errors?.['minlength']"
+            >
+              Description must be at least 20 characters!
+            </p>
+          </ng-container>
+        </div>
+      </div>
+      <button class="btn form-btn">Save changes</button>
+    </form>
+  </div>
+</section>
