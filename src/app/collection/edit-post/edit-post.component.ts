@@ -9,6 +9,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { CollectionService } from 'src/app/shared/services/collection.service';
 import { emptyValidator } from 'src/app/shared/validators/empty-validator';
+import { categories } from 'src/app/shared/constants/category-options';
 
 @Component({
   selector: 'app-edit-post',
@@ -19,6 +20,8 @@ export class EditPostComponent implements OnInit {
   form: FormGroup;
   uploadedImg!: string;
   errorUploading = false;
+
+  selectOptions: any;
 
   postData!: any;
   currentUserId!: string;
@@ -42,6 +45,7 @@ export class EditPostComponent implements OnInit {
       ]),
       category: new FormControl('', [Validators.required, emptyValidator()]),
     });
+    this.selectOptions = categories;
   }
 
   ngOnInit(): void {

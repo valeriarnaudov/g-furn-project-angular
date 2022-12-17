@@ -10,6 +10,7 @@ import {
 import { emptyValidator } from 'src/app/shared/validators/empty-validator';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { categories } from 'src/app/shared/constants/category-options';
 
 @Component({
   selector: 'app-new-post',
@@ -21,6 +22,8 @@ export class NewPostComponent {
   uploadedImg!: string;
   errorUploading = false;
   emptyCategory = false;
+
+  selectOptions: any;
 
   user = JSON.parse(localStorage.getItem('user') as any);
 
@@ -42,6 +45,7 @@ export class NewPostComponent {
       ]),
       category: new FormControl('', [Validators.required, emptyValidator()]),
     });
+    this.selectOptions = categories;
   }
 
   async newPostHandler() {

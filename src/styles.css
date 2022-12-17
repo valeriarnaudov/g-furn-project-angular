@@ -14,6 +14,9 @@
   --error-clr: red;
 
   --section-h: calc(100vh - 64px - 44px);
+
+  --submit-btn: lightgreen;
+  --clear-btn: red;
 }
 
 html {

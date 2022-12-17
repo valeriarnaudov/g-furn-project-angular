@@ -49,9 +49,11 @@
             <option value="" disabled hidden selected>
               --Please choose an option--
             </option>
-            <option value="tables">Tables</option>
-            <option value="chairs">Chairs</option>
-            <option value="sets">Sets</option>
+            <ng-container *ngFor="let option of selectOptions">
+              <option value="{{ option.value }}">
+                {{ option.text }}
+              </option>
+            </ng-container>
           </select>
           <p class="error" *ngIf="emptyCategory">Category is required!</p>
           <ng-container *ngIf="form.get('category')?.touched">

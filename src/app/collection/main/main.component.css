@@ -1,1 +1,71 @@
-@import url('../../shared/card.css');
+@import url("../../shared/card.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto;
+  gap: 0.5rem;
+}
+
+.forms h3 {
+  color: var(--primary-clr);
+  font-size: 1.3rem;
+}
+
+.forms .search-form,
+.forms .category-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.forms .search-form .search {
+  width: 300px;
+  background-color: white;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  padding: 6px 10px;
+  outline: none;
+}
+
+.forms .search-form .search:active {
+  border: none;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+button.clear-btn {
+  border-radius: 0 10px 10px 0;
+}
+
+.forms .search-form button.submit-btn:hover {
+  background-color: var(--submit-btn);
+  color: white;
+}
+
+button.clear-btn:hover {
+  color: white;
+  background-color: var(--clear-btn);
+}
+
+.forms .category-form .category {
+  width: 300px;
+  background-color: white;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  padding: 6px 10px;
+  outline: none;
+}

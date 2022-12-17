@@ -1,14 +1,104 @@
 <section>
-  <div class="view">
-    <ng-container *ngFor="let post of posts">
-      <div class="post-container">
-        <img src="{{ post.img }}" alt="Post image" class="post-img" />
-        <h1 class="title">{{ post.title }}</h1>
-        <p class="creator">Creator: {{ post.creator.name }}</p>
-        <a routerLink="/collection/details/{{ post.id }}" class="info"
-          >More info</a
+  <div class="forms">
+    <form
+      class="search-form"
+      [formGroup]="searchForm"
+      (change)="searchHandler()"
+    >
+      <input
+        type="text"
+        placeholder="Seach by title"
+        class="search"
+        formControlName="search"
+      />
+      <button class="submit-btn" type="submit">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
         >
-      </div>
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+      </button>
+      <button type="button" class="clear-btn" (click)="clearFilter()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-x-circle-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
+          /></svg
+        ><i class="bi bi-x-circle-fill"></i>
+      </button>
+    </form>
+    <h3>OR</h3>
+    <form
+      class="category-form"
+      [formGroup]="categoryForm"
+      (change)="categoryHandler()"
+    >
+      <select
+        name="category"
+        id="category"
+        class="category"
+        formControlName="category"
+      >
+        <option value="" selected disabled hidden>
+          --Please choose an option--
+        </option>
+        <ng-container *ngFor="let option of selectOptions">
+          <option value="{{ option.value }}">{{ option.text }}</option>
+        </ng-container>
+      </select>
+      <button type="button" class="clear-btn" (click)="clearFilter()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-x-circle-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
+          /></svg
+        ><i class="bi bi-x-circle-fill"></i>
+      </button>
+    </form>
+  </div>
+  <div class="view">
+    <ng-container *ngIf="!filteredData">
+      <ng-container *ngFor="let post of posts">
+        <div class="post-container">
+          <img src="{{ post.img }}" alt="Post image" class="post-img" />
+          <h1 class="title">{{ post.title }}</h1>
+          <p class="creator">Creator: {{ post.creator.name }}</p>
+          <a routerLink="/collection/details/{{ post.id }}" class="info"
+            >More info</a
+          >
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="filteredData">
+      <ng-container *ngFor="let post of filteredData">
+        <div class="post-container">
+          <img src="{{ post.img }}" alt="Post image" class="post-img" />
+          <h1 class="title">{{ post.title }}</h1>
+          <p class="creator">Creator: {{ post.creator.name }}</p>
+          <a routerLink="/collection/details/{{ post.id }}" class="info"
+            >More info</a
+          >
+        </div>
+      </ng-container>
     </ng-container>
   </div>
 </section>

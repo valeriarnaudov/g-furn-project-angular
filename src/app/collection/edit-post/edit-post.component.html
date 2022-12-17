@@ -41,15 +41,20 @@
             formControlName="category"
             [value]="postData?.category"
           >
-            <option value="tables">Tables</option>
-            <option value="chairs">Chairs</option>
-            <option value="sets">Sets</option>
+            <ng-container *ngFor="let option of selectOptions">
+              <option value="{{ option.value }}">
+                {{ option.text }}
+              </option>
+            </ng-container>
           </select>
           <ng-container *ngIf="form.get('category')?.touched">
             <p class="error" *ngIf="form.get('category')?.errors?.['required']">
               Category is required!
             </p>
-            <p class="error" *ngIf="form.get('category')?.errors?.['emptyValidator']">
+            <p
+              class="error"
+              *ngIf="form.get('category')?.errors?.['emptyValidator']"
+            >
               Category cannot be empty!
             </p>
           </ng-container>

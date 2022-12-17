@@ -1,7 +1,4 @@
 .screen {
-  /* background: url("../../../assets/images/Kettler-Garden-Furniture-2-pwzhh5s0k71t9riwu93njsieddwptc95cxmahvejvc.jpg")
-    no-repeat fixed center;
-  background-size: cover; */
   height: var(--section-h);
   display: flex;
   align-items: center;
