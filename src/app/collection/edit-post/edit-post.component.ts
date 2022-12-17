@@ -45,11 +45,18 @@ export class EditPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentUserId = JSON.parse(localStorage.getItem('user') as any).uid;
+    this.currentUserId = JSON.parse(localStorage.getItem('user') as any)?.uid;
     this.editPostId = this.activatedRoute.snapshot.params?.['id'];
     this.collectionService
       .getSinglePost(this.editPostId)
-      .then((res) => (this.postData = res.data()))
+      .then((res) => {
+        const data = res.data();
+        if (data?.['creator']?.uid === this.currentUserId) {
+          this.postData = res.data();
+        } else {
+          this.router.navigate(['/collection']);
+        }
+      })
       .catch((err) => console.log(err));
   }
 

@@ -1,35 +1,34 @@
+import { AuthGuard } from '../shared/guards/auth.activate';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
     // canActivate: [AuthActivate],
-    data: { title: 'Login', loginRequired: false },
+    data: { title: 'Login' },
   },
   {
     path: 'register',
     component: RegisterComponent,
     // canActivate: [AuthActivate],
-    data: { title: 'Register', loginRequired: false },
+    data: { title: 'Register' },
   },
   {
     path: 'logout',
     component: LogoutComponent,
-    // canActivate: [AuthActivate],
-    data: { title: 'Logout', loginRequired: true },
+    canActivate: [AuthGuard],
+    data: { title: 'Logout' },
   },
   {
     path: 'profile/:id',
     component: ProfileComponent,
-    // ...canActivate(() => redirectUnauthorizedTo(['/auth/login'])),
-    // canActivate: [AuthActivate],
+    canActivate: [AuthGuard],
     data: {
       title: 'Profile',
     },
@@ -37,8 +36,8 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditProfileComponent,
-    // canActivate: [AuthActivate],
-    data: { title: 'Profile', loginRequired: true },
+    canActivate: [AuthGuard],
+    data: { title: 'Profile' },
   },
 ];
 

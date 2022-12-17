@@ -1,0 +1,19 @@
+.container {
+  background-color: var(--card-bg);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.container .nf-title {
+  font-size: 5rem;
+  color: var(--primary-clr);
+}
+
+.container .desc {
+    font-size: 2rem;
+    color: var(--error-clr);
+}

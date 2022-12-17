@@ -99,4 +99,12 @@ export class AuthService {
       console.log(error);
     }
   }
+
+  isLoggedIn () {
+    if (localStorage.getItem('user')) {
+      return true
+    } else {
+      false
+    }
+  }
 }

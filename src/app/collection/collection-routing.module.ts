@@ -1,3 +1,4 @@
+import { AuthGuard } from './../shared/guards/auth.activate';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {
     path: 'create',
     component: NewPostComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Create post' },
   },
   {
@@ -22,11 +24,13 @@ const routes: Routes = [
   },
   {
     path: 'my-posts',
+    canActivate: [AuthGuard],
     component: MyPostsComponent,
     data: { title: 'My posts' },
   },
   {
     path: 'edit/:id',
+    canActivate: [AuthGuard],
     component: EditPostComponent,
     data: { title: 'Edit post' },
   },

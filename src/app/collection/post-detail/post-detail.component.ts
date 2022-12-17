@@ -22,7 +22,7 @@ export class PostDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.currentUserId = JSON.parse(localStorage.getItem('user') as any).uid;
+    this.currentUserId = JSON.parse(localStorage.getItem('user') as any)?.uid;
     this.postId = this.activatedRoute.snapshot.params?.['id'];
 
     this.collectionService
