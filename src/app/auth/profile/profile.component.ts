@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ProfileComponent implements OnInit {
   id!: string;
+
   userData!: any;
   currentUser!: any;
 

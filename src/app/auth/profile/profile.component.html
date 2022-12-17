@@ -1,20 +1,24 @@
 <section>
-  <div class="profile-container">
-    <div class="side">
-      <img
-        src="{{userData?.img}}"
-        alt="profile-img"
-        class="profile-img"
-      />
+  <div class="profile">
+    <div class="profile-container">
+      <div class="side">
+        <img
+          src="{{userData?.img}}"
+          alt="profile-img"
+          class="profile-img"
+        />
+      </div>
+      <div class="side">
+        <h1 class="title">{{userData?.name}}'s Profile</h1>
+        <p class="name">Name: {{userData?.name}}</p>
+        <p class="years">Years: {{userData?.years}}</p>
+        <ng-container *ngIf="isOwner">
+          <p class="email">Email: {{userData?.email}}</p>
+          <a class="btn edit-btn" routerLink="/auth/edit/{{userData?.uid}}">Edit</a>
+        </ng-container>
+      </div>
     </div>
-    <div class="side">
-      <h1 class="title">{{userData?.name}}'s Profile</h1>
-      <p class="name">Name: {{userData?.name}}</p>
-      <p class="years">Years: {{userData?.years}}</p>
-      <p class="email">Email: {{userData?.email}}</p>
-      <ng-container *ngIf="isOwner">
-        <a class="btn edit-btn" routerLink="/auth/edit/{{userData?.uid}}">Edit</a>
-      </ng-container>
-    </div>
+    <h1 class="posts-title">{{userData?.name}}'s Posts</h1>
+    <app-my-posts></app-my-posts>
   </div>
 </section>

@@ -42,9 +42,8 @@ export class AuthService {
         password
       );
       const newUserRef = doc(this.firestore, 'users', createdUser.user.uid);
-      const loggedUser = await setDoc(newUserRef, { email, img, name, years });
-      localStorage.setItem('user', JSON.stringify(loggedUser));
-      this.router.navigate(['/collection']);
+      await setDoc(newUserRef, { email, img, name, years });
+      this.login({ email, password });
       return;
     } catch (error) {
       console.log(error);

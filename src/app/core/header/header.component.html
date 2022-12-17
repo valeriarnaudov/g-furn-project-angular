@@ -9,7 +9,9 @@
       <li class="nav-item"><a routerLink="/">Home</a></li>
       <li class="nav-item"><a routerLink="/collection">Collection</a></li>
       <ng-container *ngIf="userData">
-        <li class="nav-item"><a routerLink="/my-posts">My Posts</a></li>
+        <li class="nav-item">
+          <a routerLink="/collection/my-posts">My Posts</a>
+        </li>
         <li class="nav-item">
           <a routerLink="/collection/create">New Post</a>
         </li>
@@ -18,8 +20,8 @@
     <ul class="right list" role="list">
       <ng-container *ngIf="userData">
         <li class="nav-item">
-          <a routerLink="/auth/profile/{{ userData.uid }}"
-            >{{ userData.name }}'s Profile</a
+          <a routerLink="/auth/profile/{{ userData?.uid }}"
+            >{{ userData?.name }}'s Profile</a
           >
         </li>
         <li class="nav-item"><a routerLink="/auth/logout">Logout</a></li>

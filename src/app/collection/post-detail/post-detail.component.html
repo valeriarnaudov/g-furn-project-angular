@@ -9,14 +9,21 @@
         {{ post?.description }}
       </p>
       <p class="creator">
-        Creator: <a class="creator-name">{{ post?.creator.name }}</a>
-      </p>
-      <div class="btns">
-        <a routerLink="/collection/edit/{{ postId }}" class="btn btn-edit"
-          >Edit</a
+        Creator:
+        <a
+          class="creator-name"
+          routerLink="/auth/profile/{{ post?.creator.uid }}"
+          >{{ post?.creator.name }}</a
         >
-        <button class="btn btn-delete" (click)="deletePost()">Delete</button>
-      </div>
+      </p>
+      <ng-container *ngIf="isOwner">
+        <div class="btns">
+          <a routerLink="/collection/edit/{{ postId }}" class="btn btn-edit"
+            >Edit</a
+          >
+          <button class="btn btn-delete" (click)="deletePost()">Delete</button>
+        </div>
+      </ng-container>
     </div>
   </div>
 </section>

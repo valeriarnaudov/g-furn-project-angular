@@ -47,3 +47,15 @@
   color: green;
   background-color: var(--primary-clr);
 }
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile .posts-title {
+  color: var(--primary-clr);
+  margin-top: 1.5rem;
+}
