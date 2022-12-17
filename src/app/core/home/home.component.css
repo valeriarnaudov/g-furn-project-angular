@@ -1,29 +1,30 @@
 .screen {
-    background: url('../../../assets/images/Kettler-Garden-Furniture-2-pwzhh5s0k71t9riwu93njsieddwptc95cxmahvejvc.jpg') no-repeat fixed center;
-    background-size: cover;
-    height: var(--section-h);
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 1.5rem;
+  /* background: url("../../../assets/images/Kettler-Garden-Furniture-2-pwzhh5s0k71t9riwu93njsieddwptc95cxmahvejvc.jpg")
+    no-repeat fixed center;
+  background-size: cover; */
+  height: var(--section-h);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5rem;
 }
 
-.screen .title{
-    color: white;
+
+.screen .title {
+  color: white;
 }
 
 .screen .btn.home-btn {
-    color: var(--primary-clr);
-    background-color: var(--secondary-clr);
-    padding: 15px 30px;
-    border-radius: 30px;
-    cursor: pointer;
+  color: var(--primary-clr);
+  background-color: var(--secondary-clr);
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
 }
 
 .screen .btn.home-btn:hover {
-    color: var(--secondary-clr);
-    background-color: var(--primary-clr);
-
+  color: var(--secondary-clr);
+  background-color: var(--primary-clr);
 }

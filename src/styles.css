@@ -1,32 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(./app/shared/reset.css);
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap");
 
 :root {
-    --primary-clr: blue;
-    --secondary-clr: lightblue;
-    --logo-clr1: green;
-    --logo-clr2: grey;
-    --logo-title: lightgreen;
-    --form-bg: lightgrey;
-    --card-bg: lightgrey;
-    --error-clr: red;
+  --primary-clr: white;
+  --secondary-clr: darkgrey;
+  --logo-clr1: green;
+  --logo-clr2: grey;
+  --logo-title: lightgreen;
+  --form-bg: lightgrey;
+  --card-bg: lightgrey;
+  --error-clr: red;
 
-    --section-h: calc(100vh - 64px - 44px);
+  --section-h: calc(100vh - 64px - 44px);
 }
 
 html {
-    font-family: 'Poppins', sans-serif;
-    background-color: lightgreen;
+  font-family: "Poppins", sans-serif;
+  background: url("./assets/images/grass.jpg") no-repeat fixed center;
+  background-size: cover;
 }
 
 section {
-    min-height: var(--section-h);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem auto;
-  }
+  min-height: var(--section-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+}
