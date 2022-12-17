@@ -81,7 +81,7 @@
         <div class="post-container">
           <img src="{{ post.img }}" alt="Post image" class="post-img" />
           <h1 class="title">{{ post.title }}</h1>
-          <p class="creator">Creator: {{ post.creator.name }}</p>
+          <p class="creator">Category: {{ post?.category.toUpperCase() }}</p>
           <a routerLink="/collection/details/{{ post.id }}" class="info"
             >More info</a
           >
@@ -93,7 +93,7 @@
         <div class="post-container">
           <img src="{{ post.img }}" alt="Post image" class="post-img" />
           <h1 class="title">{{ post.title }}</h1>
-          <p class="creator">Creator: {{ post.creator.name }}</p>
+          <p class="creator">Category: {{ post?.category.toUpperCase() }}</p>
           <a routerLink="/collection/details/{{ post.id }}" class="info"
             >More info</a
           >

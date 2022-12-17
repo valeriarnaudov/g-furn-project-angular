@@ -8,14 +8,20 @@
       <p class="description">
         {{ post?.description }}
       </p>
-      <p class="creator">
-        Creator:
-        <a
-          class="creator-name"
-          routerLink="/auth/profile/{{ post?.creator.uid }}"
-          >{{ post?.creator.name }}</a
-        >
-      </p>
+      <div class="info">
+        <p class="creator">
+          Category:
+          {{ post?.category.toUpperCase() }}
+        </p>
+        <p class="creator">
+          Creator:
+          <a
+            class="creator-name"
+            routerLink="/auth/profile/{{ post?.creator.uid }}"
+            >{{ post?.creator.name }}</a
+          >
+        </p>
+      </div>
       <ng-container *ngIf="isOwner">
         <div class="btns">
           <a routerLink="/collection/edit/{{ postId }}" class="btn btn-edit"

@@ -25,6 +25,11 @@
   margin-bottom: 1rem;
 }
 
+.post-container .info {
+  display: flex;
+  justify-content: space-between;
+}
+
 .post-container .creator {
   text-align: end;
   font-size: 1.1rem;
