@@ -8,15 +8,18 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: HomeComponent,
+    data: { title: 'G-Furn' },
   },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    data: { title: 'User' },
   },
   {
     path: 'collection',
     loadChildren: () =>
       import('./collection/collection.module').then((m) => m.CollectionModule),
+    data: { title: 'Collection' },
   },
   {
     path: 'not-found',

@@ -10,13 +10,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    // canActivate: [AuthActivate],
     data: { title: 'Login' },
   },
   {
     path: 'register',
     component: RegisterComponent,
-    // canActivate: [AuthActivate],
     data: { title: 'Register' },
   },
   {
@@ -37,7 +35,7 @@ const routes: Routes = [
     path: 'edit/:id',
     component: EditProfileComponent,
     canActivate: [AuthGuard],
-    data: { title: 'Profile' },
+    data: { title: 'Edit Profile' },
   },
 ];
 
