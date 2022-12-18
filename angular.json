@@ -91,6 +91,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "g-furn:build:production",
+            "firebaseProject": "g-furn",
+            "firebaseHostingSite": "g-furn"
+          }
         }
       }
     }

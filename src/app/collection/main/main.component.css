@@ -1,5 +1,4 @@
 @import url("../../shared/card.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
 
 section {
   display: flex;
@@ -70,4 +69,3 @@ button.clear-btn:hover {
   padding: 6px 10px;
   outline: none;
 }
-

@@ -2,7 +2,9 @@
 
     Protected and public pages included.
         To install all the packages needed, write in the console "npm i".
-        The project is availvable by hosting of firebase: 
+        The project is availvable by hosting of firebase at: 
+                    - https://g-furn.web.app/
+                    - https://g-furn.firebaseapp.com/
         For authentication, database and storage, is used Firebase.
 
     Authentication:

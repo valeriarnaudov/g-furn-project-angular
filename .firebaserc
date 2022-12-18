@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "g-furn": {
+      "hosting": {
+        "g-furn": [
+          "g-furn"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "g-furn"
+  }
+}
