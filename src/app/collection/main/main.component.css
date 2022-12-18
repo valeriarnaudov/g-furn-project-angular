@@ -49,6 +49,7 @@ button {
 
 button.clear-btn {
   border-radius: 0 10px 10px 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .forms .search-form button.submit-btn:hover {
@@ -62,10 +63,11 @@ button.clear-btn:hover {
 }
 
 .forms .category-form .category {
-  width: 300px;
+  width: 356px;
   background-color: white;
   border: none;
   border-radius: 10px 0 0 10px;
   padding: 6px 10px;
   outline: none;
 }
+

@@ -38,7 +38,9 @@ export class PostDetailComponent implements OnInit {
   }
 
   async deletePost() {
-    await this.collectionService.deletePost(this.postId);
-    return this.route.navigate(['/collection']);
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      await this.collectionService.deletePost(this.postId);
+      return this.route.navigate(['/collection']);
+    }
   }
 }

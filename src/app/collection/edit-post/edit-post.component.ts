@@ -65,38 +65,40 @@ export class EditPostComponent implements OnInit {
   }
 
   editFormHandler() {
-    const value = this.form.value;
-    if (
-      value.title !== '' &&
-      value.title !== null &&
-      value.title !== undefined
-    ) {
-      this.postData.title = value.title;
-    }
-    if (
-      value.category !== '' &&
-      value.category !== null &&
-      value.category !== undefined
-    ) {
-      this.postData.category = value.category;
-    }
-    if (value.img !== '' && value.img !== null && value.img !== undefined) {
-      this.postData.img = this.uploadedImg;
-    }
-    if (
-      value.description !== '' &&
-      value.description !== null &&
-      value.description !== undefined
-    ) {
-      this.postData.description = value.description;
-    }
+    if (window.confirm('Do you want to save the changes?')) {
+      const value = this.form.value;
+      if (
+        value.title !== '' &&
+        value.title !== null &&
+        value.title !== undefined
+      ) {
+        this.postData.title = value.title;
+      }
+      if (
+        value.category !== '' &&
+        value.category !== null &&
+        value.category !== undefined
+      ) {
+        this.postData.category = value.category;
+      }
+      if (value.img !== '' && value.img !== null && value.img !== undefined) {
+        this.postData.img = this.uploadedImg;
+      }
+      if (
+        value.description !== '' &&
+        value.description !== null &&
+        value.description !== undefined
+      ) {
+        this.postData.description = value.description;
+      }
 
-    this.collectionService
-      .editPost(this.editPostId, this.postData)
-      .then((res) =>
-        this.router.navigate(['/collection/details/' + this.editPostId])
-      )
-      .catch((err) => console.log(err));
+      this.collectionService
+        .editPost(this.editPostId, this.postData)
+        .then((res) =>
+          this.router.navigate(['/collection/details/' + this.editPostId])
+        )
+        .catch((err) => console.log(err));
+    }
   }
 
   uploadImg($event: any) {

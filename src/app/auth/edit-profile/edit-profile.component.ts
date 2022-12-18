@@ -59,26 +59,32 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfileHandler() {
-    const value = this.form.value;
-    if (value.name !== '' && value.name !== null && value.name !== undefined) {
-      this.userData.name = value.name;
+    if (window.confirm('Do you want to save the changes?')) {
+      const value = this.form.value;
+      if (
+        value.name !== '' &&
+        value.name !== null &&
+        value.name !== undefined
+      ) {
+        this.userData.name = value.name;
+      }
+      if (
+        value.years !== '' &&
+        value.years !== null &&
+        value.years !== undefined
+      ) {
+        this.userData.years = value.years;
+      }
+      if (value.img !== '' && value.img !== null && value.img !== undefined) {
+        this.userData.img = this.uploadedImg;
+      }
+      this.authService
+        .editUserData(this.id, this.userData)
+        .then((res) => {
+          this.router.navigate(['/auth/profile/' + this.id]);
+        })
+        .catch((err) => console.log(err));
     }
-    if (
-      value.years !== '' &&
-      value.years !== null &&
-      value.years !== undefined
-    ) {
-      this.userData.years = value.years;
-    }
-    if (value.img !== '' && value.img !== null && value.img !== undefined) {
-      this.userData.img = this.uploadedImg;
-    }
-    this.authService
-      .editUserData(this.id, this.userData)
-      .then((res) => {
-        this.router.navigate(['/auth/profile/' + this.id]);
-      })
-      .catch((err) => console.log(err));
   }
 
   uploadProfileImg($event: any) {

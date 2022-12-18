@@ -1,5 +1,5 @@
 <section>
-  <div class="view">
+  <div class="view" *ngIf="userPosts?.length !== 0">
     <div class="post-container" *ngFor="let post of userPosts">
       <img src="{{ post?.img }}" alt="Post image" class="post-img" />
       <h1 class="title">{{ post?.title }}</h1>
@@ -9,4 +9,7 @@
       >
     </div>
   </div>
+  <ng-container class="view" *ngIf="userPosts?.length === 0">
+    <h1 class="no-result">User haven't post anithing yet!</h1>
+  </ng-container>
 </section>

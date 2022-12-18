@@ -50,3 +50,8 @@
     background-color: var(--secondary-clr);
   }
   
+  .no-result {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-clr);
+  }

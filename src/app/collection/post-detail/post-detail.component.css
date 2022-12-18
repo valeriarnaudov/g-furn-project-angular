@@ -44,6 +44,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .post-container .btn {
@@ -53,14 +54,17 @@
   text-decoration: none;
   color: var(--primary-clr);
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-edit {
   background-color: green;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-delete {
   background-color: red;
+  transition: all 0.3s ease-in-out;
 }
 
 .post-container .btn-edit:hover {

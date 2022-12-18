@@ -41,6 +41,7 @@
   text-decoration: none;
   cursor: pointer;
   color: var(--primary-clr);
+  transition: all 0.3s ease-in-out;
 }
 
 .profile-container .edit-btn:hover {
